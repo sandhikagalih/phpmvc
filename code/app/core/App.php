@@ -25,12 +25,6 @@ class App {
 
     }
 
-    private function requireController()
-    {
-        require_once '../app/controllers/' . $this->controller . '.php';
-        $this->controller = new $this->controller;
-    }
-
     private function setController()
     {
         if ( isset($this->url[0]) ) {
@@ -41,7 +35,8 @@ class App {
             }
         }
 
-        $this->requireController();
+        require_once '../app/controllers/' . $this->controller . '.php';
+        $this->controller = new $this->controller;
     }
 
     private function setMethod()
