@@ -34,8 +34,9 @@ class App {
     private function setController()
     {
         if ( isset($this->url[0]) ) {
-            if( file_exists('../app/controllers/' . $this->url[0] . '.php') ) {
-                $this->controller = $this->url[0];
+            $controller = ucfirst($this->url[0]);
+            if( file_exists('../app/controllers/' . $controller . '.php') ) {
+                $this->controller = $controller;
                 unset($this->url[0]);
             }
         }
